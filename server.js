@@ -20,7 +20,7 @@ var articleOne={
          </div>`
 };
 
-function createTemplate(data){                                   //function with data is object
+function createTemplate(data){                                   
 var title=data.title;
 var heading=data.heading;
 var date=data.date;
@@ -48,9 +48,10 @@ var htmlTemplate=`
      <div>
         ${content}
      </div>
+     </div>
  </body>
 </html>
-`;                                                              //above is the string containing variables 
+`;                                                              
 return htmlTemplate;
 }
 app.get('/', function (req, res) {
