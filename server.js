@@ -10,43 +10,55 @@ var articles={
     title:'Article One',
     heading:'Article One',
     date:'Apr 18,2017',
-    content:` <p>
+    content:` <div>
+         <p>
              India is my country.All Indians are my brpthers and sisters.I love my country and i am proud of it heritage.
          </p>
          <p>
              This is the second paragraph.
          </p>
-         <div>
+     </div>
+     <hr/>
+     
+     <div>
          <a href="https://imad.hasura.io">Home</a>
-         </div>`
+     </div>`
 },
 'article-two':{
     title:'Article Two',
     heading:'Article Two',
     date:'Apr 19,2017',
-    content:` <p>
+    content:` <div>
+         <p>
              India is my country.All Indians are my brpthers and sisters.I love my country and i am proud of it heritage.
          </p>
          <p>
              This is the second paragraph.
          </p>
-         <div>
+     </div>
+     <hr/>
+     
+     <div>
          <a href="https://imad.hasura.io">Home</a>
-         </div>`
+     </div>`
 },
 'article-three':{
     title:'Article Three',
     heading:'Article Three',
     date:'Apr 20,2017',
-    content:` <p>
+    content:`<div>
+         <p>
              India is my country.All Indians are my brpthers and sisters.I love my country and i am proud of it heritage.
          </p>
          <p>
              This is the second paragraph.
          </p>
-         <div>
+     </div>
+     <hr/>
+     
+     <div>
          <a href="https://imad.hasura.io">Home</a>
-         </div>`
+     </div>`
  }
 };
 
@@ -75,9 +87,7 @@ var htmlTemplate=`
          ${date}
      </div>
      
-     <div>
-        ${content}
-     </div>
+     ${content}
      </div>
  </body>
 </html>
@@ -89,13 +99,6 @@ app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
  
- app.get('/:articleName',function(req,res) {
-    //articleName==article-one
-    //articles[articleName]==content object for article one
-    var articleName=req.params.articleName;
-    res.send(createTemplate(articles[articleName]));
-});
-
 app.get('/ui/style.css', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'style.css'));
 });
@@ -104,7 +107,12 @@ app.get('/ui/madi.png', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'madi.png'));
 });
 
-
+app.get('/:articleName',function(req,res) {
+    //articleName==article-one
+    //articles[articleName]==content object for article one
+    var articleName=req.params.articleName;
+    res.send(createTemplate(article-one));
+});
 
 /*
 app.get('/article-two',function(req,res) {
