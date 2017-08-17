@@ -11,10 +11,10 @@ img.onclick=function(){
 //move madi image continously
 var img=document.getElementById('madi');
 var marginLeft=0;                                //variable
-function moveimg(){                           
+function moveRight(){                           
     marginLeft=marginLeft + 1;
     img.style.marginLeft + 'px';
 }
 img.onclick=function(){
-    var interval=setInterval(moveimg,50);         //apply moveimg function every 100ms
+    var interval=setInterval(moveRight,50);         //apply moveimg function every 100ms
 }
