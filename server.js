@@ -14,7 +14,10 @@ var articleOne={
          </p>
          <p>
              This is the second paragraph.
-         </p>`
+         </p>
+         <div>
+         <a href="https://imad.hasura.io">Home</a>
+         </div>`
 };
 
 function createTemplate(data){                                   //function with data is object
@@ -22,6 +25,7 @@ var title=data.title;
 var heading=data.heading;
 var date=data.date;
 var content=data.content;
+
 var htmlTemplate=`                                                 
     <!DOCTYPE html>
 <html>
@@ -43,9 +47,6 @@ var htmlTemplate=`
      
      <div>
         ${content}
-     <div>
-         <a href="https://imad.hasura.io">Home</a>
-     </div>
      </div>
  </body>
 </html>
