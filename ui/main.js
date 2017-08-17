@@ -9,7 +9,7 @@ img.onclick=function(){
 */
 
 //move madi image continously
-var img=getElementById('madi');
+var img=document.getElementById('madi');
 var marginLeft=0;                                //variable
 function moveimg(){                           
     marginLeft=marginLeft + 1;
