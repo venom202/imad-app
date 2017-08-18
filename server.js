@@ -111,7 +111,7 @@ app.get('/ui/madi.png', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'madi.png'));
 });
 
-var counter=0;
+var counter=0;                                    //This is code for counter it should be written above /:articleName to be read first
 app.get('/counter',function(req, res) {
     counter=counter + 1;
     res.send(counter.toString());
