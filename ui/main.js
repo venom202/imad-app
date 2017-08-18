@@ -38,9 +38,8 @@ button.onclick=function() {
             span.innerHTML=counter.toString();
         }
     }  
-    
-    //make request
+  };
+  //make request
     request.open('GET','http://u202mehulpatil.imad.hasura-app.io/counter',true);
     request.send(null);
-  };
 };
