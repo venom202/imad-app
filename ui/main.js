@@ -43,4 +43,3 @@ button.onclick=function() {
     request.open('GET','http://u202mehulpatil.imad.hasura-app.io/counter',true);
     request.send(null);
 };
-                    
