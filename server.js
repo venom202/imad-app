@@ -112,9 +112,10 @@ app.get('/ui/madi.png', function (req, res) {
 });
 
 var names=[];    
-app.get('/submit-name/:name', function(req, res){                      //  /:name is passed as URL object
+//app.get('/submit-name/:name', function(req, res){                      //  /:name is passed as URL object
+app.get('/submit-name', function(req, res){                        // to send name as query parameter eg:URL/submit-name?name=..... 
     //get the name from request
-    var name=req.params.name;
+    var name=req.query.name;
     //JSON-JavaScript object Notation is way of converting objects to string in this case arrar to string
     names.push(JSON.stringify(name));
     res.send(names);
