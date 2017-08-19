@@ -62,6 +62,22 @@ var articles={
  }
 };
 
+var names=[];    
+//app.get('/submit-name/:name', function(req, res){                      //  /:name is passed as URL object
+app.get('/submit-name', function(req, res){                        // to send name as query parameter eg:URL/submit-name?name=..... 
+    //get the name from request
+    var name=req.query.name;
+    //JSON-JavaScript object Notation is way of converting objects to string in this case arrar to string
+    names.push(JSON.stringify(name));
+    res.send(names);
+});
+
+var counter=0;                                    //This is code for counter it should be written above /:articleName to be read first
+app.get('/counter',function(req, res) {
+    counter=counter + 1;
+    res.send(counter.toString());
+});
+
 function createTemplate(data){                                   
 var title=data.title;
 var heading=data.heading;
@@ -109,22 +125,6 @@ app.get('/ui/style.css', function (req, res) {
 
 app.get('/ui/madi.png', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'madi.png'));
-});
-
-var names=[];    
-//app.get('/submit-name/:name', function(req, res){                      //  /:name is passed as URL object
-app.get('/submit-name', function(req, res){                        // to send name as query parameter eg:URL/submit-name?name=..... 
-    //get the name from request
-    var name=req.query.name;
-    //JSON-JavaScript object Notation is way of converting objects to string in this case arrar to string
-    names.push(JSON.stringify(name));
-    res.send(names);
-});
-
-var counter=0;                                    //This is code for counter it should be written above /:articleName to be read first
-app.get('/counter',function(req, res) {
-    counter=counter + 1;
-    res.send(counter.toString());
 });
 
 app.get('/:articleName',function(req,res) {
