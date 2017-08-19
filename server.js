@@ -116,7 +116,7 @@ app.get('/submit-name/:name', function(req, res){                      //  /:nam
     //get the name from request
     var name=req.param.name;
     //JSON-JavaScript object Notation is way of converting objects to string in this case arrar to string
-    name.push(JSON.stringify(name));
+    names.push(JSON.stringify(name));
     res.send(names);
 });
 
