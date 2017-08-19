@@ -50,7 +50,7 @@ var nameInput=document.getElementById('name');
 var name=nameInput.value;
 var submit=document.getElementById('submit_btn');
 submit.onclick=function() {
-    //make a request to server and send name
+    //make a request to server and send name code 
     //capture name and render it as list
     var name=['name1','name2','name3'];
     var list='';
