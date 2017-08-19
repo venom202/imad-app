@@ -51,12 +51,27 @@ var name=nameInput.value;
 var submit=document.getElementById('submit_btn');
 submit.onclick=function() {
     //make a request to server and send name code 
-    //capture name and render it as list
-    var name=['name1','name2','name3'];
-    var list='';
-    for(var i=0;i<name.length;i++) {
-        list += '<li>' + name[i] + '</li>';
+  //create request object
+  var request=new XMLHttpRequest();
+  
+  //capture response and store it in a variable
+  request.onreadystatechange=function() {
+    if(request.readyState === XMLHttpRequest.DONE) {
+        //take action 
+        if(request.status === 200) {
+            //capture name and render it as list
+            var names=request.responseText;
+            names=JSON.parse(name);
+            var list='';
+            for(var i=0;i<name.length;i++) {
+            list += '<li>' + name[i] + '</li>';
     }
     var ul=document.getElementById('namelist');
     ul.innerHTML.list;
+        }
+    }  
+  };
+  //make request
+    request.open('GET','http://u202mehulpatil.imad.hasura-app.io/submit-name?name=' +name,true);
+    request.send(null);
 };
