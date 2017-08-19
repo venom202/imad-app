@@ -46,8 +46,6 @@ button.onclick=function() {
 
 
 //display name code
-var nameInput=document.getElementById('names');
-var name=nameInput.value;
 var submit=document.getElementById('submit_btn');
 submit.onclick=function() {
     //make a request to server and send name code 
@@ -72,6 +70,8 @@ submit.onclick=function() {
     }  
   };
   //make request
+    var nameInput=document.getElementById('name');
+    var name=nameInput.value;
     request.open('GET','http://u202mehulpatil.imad.hasura-app.io/submit-name?name=' +name,true);
     request.send(null);
 };
