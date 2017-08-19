@@ -111,6 +111,15 @@ app.get('/ui/madi.png', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'madi.png'));
 });
 
+var names[];
+app.get('/submit-name/:name', function(req, res){                      //  /:name is passed as URL object
+    //get the name from request
+    var name=req.param.name;
+    //JSON-JavaScript object Notation is way of converting objects to string in this case arrar to string
+    name.push(JSON.stringify(name));
+    res.send(names);
+});
+
 var counter=0;                                    //This is code for counter it should be written above /:articleName to be read first
 app.get('/counter',function(req, res) {
     counter=counter + 1;
