@@ -4,8 +4,12 @@ var path = require('path');
 var Pool=require('pg').Pool;
 
 var config={
-    user='',
-}
+    user:'u202mehulpatil',
+    database:'u202mehulpatil',
+    host:'db.imad.hasura-app.io',
+    port:'5432',
+    password:process.env.DB_PASSWORD
+};
 
 var app = express();
 app.use(morgan('combined'));
@@ -104,8 +108,19 @@ app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 
+//this code is for connecting database
+var pool=new Pool(config);        //created outside server request so that it is created as soon as app is started and not when new connection happens
 app.get('/test-db',function (req,res) {
     
+    //return a response with a request
+    pool.query('select * from test', function(err,result) {
+       if(err) {
+           res.status(500).send(err.toString());
+       } 
+       else {
+           res.send(JSON.stringify(result));
+       }
+    });
 });
  
 app.get('/ui/style.css', function (req, res) {
