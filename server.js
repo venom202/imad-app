@@ -158,11 +158,11 @@ app.get('/articles/:articleName',function(req,res) {
     
     pool.query("select * from article where title=" + req.params.articleName, function(err,result){
        if(err) {
-           res.send(500).send(err.toString());
+           res.status(500).send(err.toString());
        } 
        else {
            if(result.rows.length === 0) {
-               res.send(404).send('Aritcle not found'); 
+               res.status(404).send('Aritcle not found'); 
            } else {
                var articleData =res.rows[0];
                res.send(createTemplate(articleData));              //articleData is database variable containing value from database
