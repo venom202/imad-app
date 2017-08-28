@@ -75,7 +75,7 @@ function createTemplate(data){
 var title=data.title;
 var heading=data.heading;
 var date=data.date;
-var content=data.content;
+var content=data.content;    //no need of this after connecting to database as request is made dynamically from database
 
 var htmlTemplate=`                                                 
     <!DOCTYPE html>
@@ -100,7 +100,7 @@ var htmlTemplate=`
      </div>
  </body>
 </html>
-`;                                                              
+`;                                                          
 return htmlTemplate;
 }
 
